@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Costa Rica Weather</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
 
-<body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
+  <body>
+        <div class="container-fluid">
+          <div class="jumbotron text-center">
+            </br>
+            <div class="row">
+            <div class="col-md-12">
+            <h4 class="card-title">{{ data.news_title }}</h4>
+            <p>{{ data.news_p }}</p>
+          </div>
+        </div>
+      <hr>
+        <div class="row">
+          <div class="col-md-8 border">
+            <h2 class=""><u>Featured Mars Image</u></h2> 
+            </br>
+            <img class="col-md-12 border" src="{{ data.featured_image }}" alt="Features Mars Image">
+          </div>
+          <div class="col-md-4">
+            
+            </br>
+            <div class="card">
+              <h3>Mars Facts</h3>
+                {{ data.mars_html_table }}
+            </div>
+          </div>
+        </div>
+      <hr>
+        <div class="row">
+          <div class="col-md-8 offset-4">
+            <h2 class="align-items-center"><u>Mars hemispheres</u></h2>  
+          </div>
+        </div>
+        </br>
+        <div class="row">       
+                {% for hemisphere in mars.hemisphere_images %} 
+                  <div class="col-6 border">
+                  </br>
+                        <div>
+                          <img width="512 px" height="512 px" src="{{hemisphere.hemisphere_urls}}">
+                        </div>
 
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
-    </div>
-  </div>
-</body>
+                        <div>
+                          <h4> {{hemisphere_dict.title}} </h4>  
+                        </div>
+                
+                  </div>
+                {% endfor %}
+        </div> 
 
+      <hr>
+  </body>
 </html>
